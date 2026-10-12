@@ -1,0 +1,25 @@
+---
+import business from "../data/business.json";
+---
+
+<footer class="mt-16 border-t border-stone-200 bg-white">
+  <div class="mx-auto max-w-6xl space-y-1 px-4 py-8 text-sm text-stone-600">
+    <p class="font-semibold text-stone-800">{business.name}</p>
+    <p>{business.address}</p>
+    <p>{business.hours}</p>
+    {
+      business.instagram && (
+        <p>
+          <a
+            href={`https://instagram.com/${business.instagram}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-brand hover:underline"
+          >
+            @{business.instagram}
+          </a>
+        </p>
+      )
+    }
+  </div>
+</footer>

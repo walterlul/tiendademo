@@ -1,0 +1,75 @@
+---
+import type { Product } from "../lib/types";
+import { formatPrice } from "../lib/format";
+
+interface Props {
+  product: Product;
+}
+const { product } = Astro.props;
+---
+
+<article data-product={product.id}class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-stone-200">
+  <div class="relative aspect-square bg-stone-100">
+    <img
+      src={product.image}
+      alt={product.name}
+      loading="lazy"
+      class:list={["h-full w-full object-cover", !product.inStock && "opacity-50 grayscale"]}
+    />
+    {
+      !product.inStock && (
+        <span class="absolute left-3 top-3 rounded-full bg-stone-800 px-3 py-1 text-xs font-semibold text-white">
+          Sin stock
+        </span>
+      )
+    }
+  </div>
+
+  <div class="flex flex-1 flex-col gap-2 p-4">
+    <p class="text-xs font-medium uppercase tracking-wide text-brand">{product.category}</p>
+    <h2 class="text-lg font-semibold">{product.name}</h2>
+    <p class="flex-1 text-sm text-stone-600">{product.description}</p>
+    <p class="text-xl font-bold">{formatPrice(product.price)}</p>
+
+    {
+      product.inStock ? (
+        <div class="mt-2" data-cart-controls data-id={product.id}>
+          <button
+            type="button"
+            data-action="add"
+            data-add-main
+            class="w-full rounded-full bg-brand px-4 py-2 font-semibold text-white hover:bg-brand-dark"
+          >
+            Agregar al pedido
+          </button>
+          <div
+            data-stepper
+            class="hidden items-center justify-between rounded-full bg-stone-100 p-1"
+          >
+            <button
+              type="button"
+              data-action="remove"
+              aria-label={`Quitar una unidad de ${product.name}`}
+              class="h-9 w-9 rounded-full bg-white text-lg font-bold shadow-sm hover:bg-stone-50"
+            >
+              −
+            </button>
+            <span data-qty class="font-semibold">0</span>
+            <button
+              type="button"
+              data-action="add"
+              aria-label={`Agregar una unidad de ${product.name}`}
+              class="h-9 w-9 rounded-full bg-brand text-lg font-bold text-white hover:bg-brand-dark"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      ) : (
+        <span class="mt-2 rounded-full bg-stone-200 px-4 py-2 text-center font-semibold text-stone-500">
+          No disponible
+        </span>
+      )
+    }
+  </div>
+</article>

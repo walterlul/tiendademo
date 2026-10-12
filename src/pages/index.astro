@@ -1,16 +1,216 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProductCard from "../components/ProductCard.astro";
+import CartDrawer from "../components/CartDrawer.astro";
+import products from "../data/products.json";
+import business from "../data/business.json";
+import type { Product } from "../lib/types";
+import { getCategories } from "../lib/catalog";
+
+const list = products as Product[];
+const categories = getCategories(list);
+const chip =
+  "rounded-full bg-white px-4 py-2 text-sm font-medium text-stone-700 ring-1 ring-stone-300 aria-pressed:bg-brand aria-pressed:text-white aria-pressed:ring-brand";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <Header />
+  <main class="mx-auto max-w-6xl px-4 py-10">
+    <h2 class="mb-4 text-2xl font-bold">Catálogo</h2>
+
+    <div class="mb-6 flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoría">
+      <button type="button" data-filter="all" aria-pressed="true" class={chip}>Todos</button>
+      {
+        categories.map((c) => (
+          <button type="button" data-filter={c} aria-pressed="false" class={chip}>
+            {c}
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {list.map((p) => <ProductCard product={p} />)}
+    </div>
+  </main>
+  <Footer />
+  <CartDrawer phone={business.whatsapp} />
+
+  <script type="application/json" id="products-data" set:html={JSON.stringify(list)} />
+
+  <script>
+    import {
+      addToCart,
+      removeFromCart,
+      cartCount,
+      cartLines,
+      cartTotal,
+      buildOrderMessage,
+      parseCart,
+      pruneCart,
+    } from "../lib/cart";
+    import type { Cart, CartLine } from "../lib/cart";
+    import { buildWhatsAppLink } from "../lib/whatsapp";
+    import { filterByCategory } from "../lib/catalog";
+    import { formatPrice } from "../lib/format";
+    import type { Product } from "../lib/types";
+
+    const STORAGE_KEY = "tienda-demo-cart";
+
+    const products: Product[] = JSON.parse(
+      document.getElementById("products-data")!.textContent ?? "[]"
+    );
+
+    const root = document.getElementById("cart-root")!;
+    const fab = document.getElementById("cart-fab") as HTMLButtonElement;
+    const badge = document.getElementById("cart-badge")!;
+    const overlay = document.getElementById("cart-overlay")!;
+    const panel = document.getElementById("cart-panel")!;
+    const itemsList = document.getElementById("cart-items")!;
+    const totalEl = document.getElementById("cart-total")!;
+    const sendLink = document.getElementById("cart-send") as HTMLAnchorElement;
+    const clearBtn = document.getElementById("cart-clear")!;
+    const closeBtn = document.getElementById("cart-close")!;
+    const phone = root.dataset.phone ?? "";
+
+    function load(): Cart {
+      try {
+        return pruneCart(parseCart(localStorage.getItem(STORAGE_KEY)), products);
+      } catch {
+        return [];
+      }
+    }
+
+    function save(cart: Cart) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+      } catch {
+        // si el navegador bloquea el almacenamiento, el carrito sigue andando sin guardarse
+      }
+    }
+
+    let cart: Cart = load();
+    let isOpen = false;
+
+    function setOpen(open: boolean) {
+      isOpen = open;
+      panel.hidden = !open;
+      overlay.hidden = !open;
+      fab.setAttribute("aria-expanded", String(open));
+      (open ? closeBtn : fab).focus();
+    }
+
+    function stepButton(action: "add" | "remove", symbol: string, label: string) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.dataset.action = action;
+      b.setAttribute("aria-label", label);
+      b.textContent = symbol;
+      b.className = "h-8 w-8 rounded-full bg-stone-100 font-bold hover:bg-stone-200";
+      return b;
+    }
+
+    function renderLines(lines: CartLine[]) {
+      itemsList.replaceChildren(
+        ...lines.map((line) => {
+          const li = document.createElement("li");
+          li.dataset.id = line.product.id;
+          li.className = "flex items-center gap-3 py-3";
+
+          const img = document.createElement("img");
+          img.src = line.product.image;
+          img.alt = "";
+          img.className = "h-14 w-14 shrink-0 rounded-lg bg-stone-100 object-cover";
+
+          const info = document.createElement("div");
+          info.className = "min-w-0 flex-1";
+          const name = document.createElement("p");
+          name.className = "truncate text-sm font-semibold";
+          name.textContent = line.product.name;
+          const detail = document.createElement("p");
+          detail.className = "text-sm text-stone-600";
+          detail.textContent = `${line.qty} x ${formatPrice(line.product.price)} = ${formatPrice(line.subtotal)}`;
+          info.append(name, detail);
+
+          const controls = document.createElement("div");
+          controls.className = "flex items-center gap-1";
+          controls.append(
+            stepButton("remove", "−", `Quitar una unidad de ${line.product.name}`),
+            stepButton("add", "+", `Agregar una unidad de ${line.product.name}`)
+          );
+
+          li.append(img, info, controls);
+          return li;
+        })
+      );
+    }
+
+    function render() {
+      document.querySelectorAll<HTMLElement>("[data-cart-controls]").forEach((box) => {
+        const qty = cart.find((item) => item.id === box.dataset.id)?.qty ?? 0;
+        const stepper = box.querySelector("[data-stepper]")!;
+
+        box.querySelector("[data-add-main]")!.classList.toggle("hidden", qty > 0);
+        stepper.classList.toggle("hidden", qty === 0);
+        stepper.classList.toggle("flex", qty > 0);
+        box.querySelector("[data-qty]")!.textContent = String(qty);
+      });
+
+      const count = cartCount(cart);
+      fab.hidden = count === 0;
+      badge.textContent = String(count);
+      fab.setAttribute(
+        "aria-label",
+        `Abrir pedido, ${count} ${count === 1 ? "producto" : "productos"}`
+      );
+      if (count === 0 && isOpen) setOpen(false);
+
+      renderLines(cartLines(cart, products));
+      totalEl.textContent = formatPrice(cartTotal(cart, products));
+      sendLink.href = buildWhatsAppLink(phone, buildOrderMessage(cart, products));
+    }
+
+    document.addEventListener("click", (event) => {
+      const button = (event.target as HTMLElement).closest<HTMLElement>("[data-action]");
+      const id = button?.closest<HTMLElement>("[data-id]")?.dataset.id;
+      if (!button || !id) return;
+
+      cart = button.dataset.action === "add" ? addToCart(cart, id) : removeFromCart(cart, id);
+      save(cart);
+      render();
+    });
+
+    fab.addEventListener("click", () => setOpen(!isOpen));
+    closeBtn.addEventListener("click", () => setOpen(false));
+    overlay.addEventListener("click", () => setOpen(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen) setOpen(false);
+    });
+    clearBtn.addEventListener("click", () => {
+      cart = [];
+      save(cart);
+      render();
+    });
+
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>("[data-filter]");
+    const cards = document.querySelectorAll<HTMLElement>("[data-product]");
+
+    function applyFilter(category: string) {
+      const visible = new Set(filterByCategory(products, category).map((p) => p.id));
+      cards.forEach((card) => {
+        card.hidden = !visible.has(card.dataset.product ?? "");
+      });
+      filterButtons.forEach((b) => {
+        b.setAttribute("aria-pressed", String(b.dataset.filter === category));
+      });
+    }
+
+    filterButtons.forEach((b) => {
+      b.addEventListener("click", () => applyFilter(b.dataset.filter ?? "all"));
+    });
+
+    render();
+  </script>
+</Layout>

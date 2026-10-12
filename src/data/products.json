@@ -1,0 +1,416 @@
+[
+  {
+    "id": "funda-almohada-percal",
+    "name": "Funda para almohadas percal",
+    "description": "Funda de percal. El precio es por el par.",
+    "price": 14000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "sabanas-nautica-1-5",
+    "name": "Juego de sábanas Náutica",
+    "description": "Juego de sábanas de 1½ plaza.",
+    "price": 35000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "sabanas-danubio-sempre-1-5",
+    "name": "Juego de sábanas Danubio Sempre",
+    "description": "Juego de sábanas de 1½ plaza.",
+    "price": 35000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "sabanas-danubio-1-5",
+    "name": "Juego de sábanas Danubio (Colors, Geo y Classic)",
+    "description": "Juego de sábanas de 1½ plaza. Líneas Colors, Geo y Classic.",
+    "price": 35000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "sabana-ajustable-percal-galant-2-5",
+    "name": "Sábana ajustable Percal y Galant 144 hilos",
+    "description": "Sábana ajustable de 2½ plazas, 144 hilos. Opciones: textura percal y Galant.",
+    "price": 23000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "sabanas-superajustables-danubio-colors-2-5",
+    "name": "Sábanas superajustables Danubio Colors",
+    "description": "Sábanas superajustables de 2½ plazas.",
+    "price": 23000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "sabanas-seduccion-2-5",
+    "name": "Juego de sábanas Seducción",
+    "description": "Juego de sábanas de 2½ plazas.",
+    "price": 15000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "sabanas-americano-faldon-2-5",
+    "name": "Juego de sábanas Americano con faldón",
+    "description": "Juego de sábanas de 2½ plazas con faldón.",
+    "price": 40000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "juego-alcoyana-2-5",
+    "name": "Juego Alcoyana (Premium, Estudio, Ritmo)",
+    "description": "Juego de sábanas Alcoyana de 2½ plazas. Líneas Premium, Estudio y Ritmo.",
+    "price": 50000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "sabanas-palette-algodon-2-5",
+    "name": "Juego de sábanas Palette 100% algodón",
+    "description": "Juego de sábanas de 2½ plazas, 100% algodón.",
+    "price": 60000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "ajustable-galant-queen",
+    "name": "Ajustable Galant Queen Size",
+    "description": "Sábana ajustable Galant, tamaño Queen.",
+    "price": 20000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "ajustable-galant-king",
+    "name": "Ajustable Galant King",
+    "description": "Sábana ajustable Galant, tamaño King.",
+    "price": 28000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "juego-galant-king-144",
+    "name": "Juego de sábanas Galant 144 hilos King",
+    "description": "Juego de sábanas tamaño King, 144 hilos.",
+    "price": 60000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "juego-black-king-144",
+    "name": "Juego de sábanas Black 144 hilos King",
+    "description": "Juego de sábanas tamaño King, 144 hilos.",
+    "price": 60000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "cubrecama-pravia-1-5",
+    "name": "Cubrecama Pravia de 1½ (Melange y 3D)",
+    "description": "Cubrecama de 1½ plaza. Modelos Melange y 3D.",
+    "price": 32000,
+    "category": "Dormitorio",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "repasadores-fantasia",
+    "name": "Repasadores Fantasía 100% algodón",
+    "description": "Precio único. 2 por $10.000.",
+    "price": 5000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "repasadores-blancos",
+    "name": "Repasadores blancos 100% algodón",
+    "description": "Precio único.",
+    "price": 5000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "repasadores-palette-x2",
+    "name": "Repasadores Palette (pack x2)",
+    "description": "Pack de 2 repasadores por $12.000.",
+    "price": 12000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "repasadores-arcoiris-x2",
+    "name": "Repasadores Arcoíris set x2",
+    "description": "Set de 2 repasadores.",
+    "price": 15000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "repasadores-colgantes-city-blanco",
+    "name": "Repasadores colgantes City blanco",
+    "description": "Precio por menor. Por mayor: $3.500.",
+    "price": 4000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "servilletas-vh-x4",
+    "name": "Servilletas VH x4",
+    "description": "Pack de 4 servilletas.",
+    "price": 3000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "servilletas-pack-x6",
+    "name": "Servilletas pack x6",
+    "description": "Pack de 6 servilletas.",
+    "price": 3000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "pano-secador-amarillo",
+    "name": "Paño secador amarillo",
+    "description": "Paño secador.",
+    "price": 800,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "escurridor-platos-vh",
+    "name": "Escurridor de platos absorbente VH",
+    "description": "Escurridor de platos absorbente.",
+    "price": 6000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "escurridor-platos-city-blanco",
+    "name": "Escurridor de platos absorbente City blanco",
+    "description": "Escurridor de platos absorbente.",
+    "price": 6000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "manopla-grande-vh",
+    "name": "Manopla grande VH",
+    "description": "Manopla grande.",
+    "price": 5000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "set-vh-manopla-agarradera-repasador",
+    "name": "Set VH manopla, agarradera y repasador",
+    "description": "Set de 3 piezas.",
+    "price": 5000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "set-vh-manopla-agarradera",
+    "name": "Set VH manopla + agarradera",
+    "description": "Set de 2 piezas.",
+    "price": 5000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "delantal-tela-vh",
+    "name": "Delantal de tela VH",
+    "description": "Delantal de tela.",
+    "price": 5000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "delantal-ecocuero",
+    "name": "Delantal de ecocuero",
+    "description": "Delantal de ecocuero.",
+    "price": 3000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "set-delantal-mini-chef-gorrito",
+    "name": "Set delantal Mini Chef + gorrito gourmet",
+    "description": "Set de delantal y gorrito.",
+    "price": 6000,
+    "category": "Cocina y limpieza",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "cortina-red-flower-voile-doble",
+    "name": "Cortina Red Flower Voile doble paño",
+    "description": "140x210 cm. El precio es por cada paño.",
+    "price": 23000,
+    "category": "Cortinas",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "cortina-good-night-doble-oferta",
+    "name": "Cortina Good Night doble paño (oferta)",
+    "description": "140x210 cm. Oferta, el precio es por cada paño.",
+    "price": 18000,
+    "category": "Cortinas",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "cortina-red-flower-guarda",
+    "name": "Cortina con guarda Red Flower",
+    "description": "Cortina con guarda.",
+    "price": 28000,
+    "category": "Cortinas",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "cortina-touch-of-class-guarda-bordada",
+    "name": "Cortina Touch of Class doble paño con guarda bordada",
+    "description": "140x210 cm. El precio es por cada paño.",
+    "price": 28000,
+    "category": "Cortinas",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "cortina-good-night-botones",
+    "name": "Cortina doble paño con botones Good Night",
+    "description": "140x210 cm.",
+    "price": 25000,
+    "category": "Cortinas",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "cortina-cocina-good-night",
+    "name": "Cortina de cocina Good Night doble paño",
+    "description": "125x125 cm.",
+    "price": 15000,
+    "category": "Cortinas",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "forro-cortina-bano",
+    "name": "Forro de cortina de baño",
+    "description": "Forro para cortina de baño.",
+    "price": 5500,
+    "category": "Baño",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "ganchos-cortina-bano-x12",
+    "name": "Set de 12 ganchos metálicos para cortina de baño",
+    "description": "Ganchos de metal con bonitos diseños.",
+    "price": 10000,
+    "category": "Baño",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "set-cortina-bano-protector-ganchos",
+    "name": "Set de cortina de baño + protector + ganchos",
+    "description": "Set completo para el baño.",
+    "price": 15000,
+    "category": "Baño",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "alfombra-antideslizante-bano",
+    "name": "Alfombra antideslizante para baño",
+    "description": "Alfombra antideslizante.",
+    "price": 5000,
+    "category": "Alfombras",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "alfombra-shaggy",
+    "name": "Alfombra Shaggy",
+    "description": "Alfombra Shaggy.",
+    "price": 8000,
+    "category": "Alfombras",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "alfombra-quality",
+    "name": "Alfombra Quality (desde)",
+    "description": "Precios desde $8.000.",
+    "price": 8000,
+    "category": "Alfombras",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "baberos",
+    "name": "Baberos",
+    "description": "Baberos para bebé.",
+    "price": 3000,
+    "category": "Bebé",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "toalla-bebe-capucha-oferta",
+    "name": "Toalla de bebé con capucha (oferta)",
+    "description": "Toalla de bebé con capucha. Oferta.",
+    "price": 12000,
+    "category": "Bebé",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  },
+  {
+    "id": "pijama-mujer-pantalon-largo",
+    "name": "Pijama de mujer (pantalón largo)",
+    "description": "Pijama de mujer con pantalón largo.",
+    "price": 15000,
+    "category": "Pijamas",
+    "image": "/products/placeholder.svg",
+    "inStock": true
+  }
+]

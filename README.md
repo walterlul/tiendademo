@@ -1,43 +1,28 @@
-# Astro Starter Kit: Minimal
+# Tienda demo
+
+Tienda online estática hecha con Astro. Muestra un catálogo de productos con filtros y carrito; los pedidos se preparan para enviar por WhatsApp.
+
+## Desarrollo local
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Configuración de la tienda
 
-## 🚀 Project Structure
+- Edita `src/data/products.json` para agregar o actualizar productos.
+- Edita `src/data/business.json` para cambiar el nombre, los datos del local y el número de WhatsApp (con código de país, solo números).
+- Guarda las imágenes de los productos en `public/products/` y referencia cada archivo desde el catálogo.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Publicar en Cloudflare Pages
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Importa este repositorio en Cloudflare Pages y usa estos valores:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+| Opción | Valor |
+| --- | --- |
+| Rama de producción | `main` |
+| Comando de compilación | `npm run build` |
+| Directorio de salida | `dist` |
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+El sitio se genera como contenido estático; no necesita un adaptador de servidor de Astro. Pages puede compilar y publicar cada cambio que llegue a la rama conectada.

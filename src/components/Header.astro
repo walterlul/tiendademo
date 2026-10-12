@@ -1,0 +1,26 @@
+---
+import business from "../data/business.json";
+import { buildWhatsAppLink } from "../lib/whatsapp";
+
+const link = buildWhatsAppLink(
+  business.whatsapp,
+  "Hola! Vi su catálogo y quisiera hacer una consulta."
+);
+---
+
+<header class="bg-brand text-white">
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <h1 class="text-3xl font-bold">{business.name}</h1>
+      <p class="mt-1 text-white/80">{business.tagline}</p>
+    </div>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="rounded-full bg-white px-6 py-3 text-center font-semibold text-brand hover:bg-stone-100"
+    >
+      Escribinos por WhatsApp
+    </a>
+  </div>
+</header>
